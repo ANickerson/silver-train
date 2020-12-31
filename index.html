@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Treasure Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" crossorigin="anonymous">
     <style>
@@ -110,6 +111,10 @@ U2FsdGVkX18D48t7z1U3oeoNS17qVKzvBkcM3hbrS1Hn9kPKcENnvBL0jFe/30mFKYU6g0/hcdFl5DME
             }
             el.innerHTML = txt.slice(0, i)
             i++;
+            var links = el.getElementsByTagName("a");
+            for (var x =0;x<links.length;x++){
+                links[x].setAttribute("target","_blank")
+            }
             curTimeout = setTimeout(x => typewriter(el, txt, i, speed), speed);
         }
 
