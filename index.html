@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" crossorigin="anonymous">
     <style>
+        .button-warning {
+            background: rgb(223, 117, 20);
+            /* this is an orange */
+        }
+
         /*
  * -- SPLASH STYLES --
  * This is the blue top section that appears on the page.
@@ -62,21 +67,26 @@
         integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         var description = "You must find the right answer!"
-        var message = `First things first, I needed the tools for the job. I went to that bookstore and purchased some digging equipment. I thought it best to get a branded - after my favourite vegetable.- asparagus.. or is it that well known roman weapon. Despite this it was the best price of 2020 - so proud i have encrypted the next message with the price I paid!
+        var original_message = `First things first, I needed the tools for the job. I went to that bookstore and purchased some digging equipment. I thought it best to get a branded one - after my favourite vegetable.- asparagus.. or is it that well known roman weapon. Despite this it was the best price of 2020 - so proud i have encrypted the next message with the price I paid!
 
 <a href="https://uk.camelcamelcamel.com">camelcamelcamel.com</a>
 
 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`
+        var message=original_message
+        if (localStorage.getItem("message")) {
+            message = localStorage.getItem("message")
+        }
         var decrypt_button = document.getElementById("decrypt");
         function decrypt() {
             var encrypted_el = message.split("\n").slice(-1).pop()
             var out = CryptoJS.AES.decrypt(encrypted_el, document.getElementById("cryptokey").value.toLowerCase().replace(" ", ""));
-            try{
-            var str_out = out.toString(CryptoJS.enc.Utf8)
+            try {
+                var str_out = out.toString(CryptoJS.enc.Utf8)
 
-            message = str_out
-            update_all()
-            }catch{
+                message = str_out
+                localStorage.setItem("message", message)
+                update_all()
+            } catch {
                 alert("Sorry that is not correct")
                 return
             }
@@ -84,31 +94,39 @@ U2FsdGVkX18D48t7z1U3oeoNS17qVKzvBkcM3hbrS1Hn9kPKcENnvBL0jFe/30mFKYU6g0/hcdFl5DME
         function update_all() {
             plain_text = message.split("\n").slice(0, -1).join("\n")
             console.log(plain_text)
-            if (curTimeout !==null){
+            if (curTimeout !== null) {
                 clearTimeout(curTimeout)
             }
             typewriter(document.getElementById("text_description"), plain_text)
-            
+
             document.getElementById("cryptokey").value = "";
             //document.getElementById("next_message").innerText = message.split("\n").slice(-1).pop();
         }
         var curTimeout = null
-        function typewriter(el, txt, i=0, speed=50){
-            
-            if (i>txt.length){
+        function typewriter(el, txt, i = 0, speed = 50) {
+
+            if (i > txt.length) {
                 return
             }
-            el.innerHTML = txt.slice(0,i)
+            el.innerHTML = txt.slice(0, i)
             i++;
-            curTimeout=setTimeout(x=>typewriter(el,txt,i,speed), speed);
+            curTimeout = setTimeout(x => typewriter(el, txt, i, speed), speed);
         }
 
-        function create_message(messages){
+        function create_message(messages) {
             var out = messages[messages.length][0]
-            for (var x=messages.length;x>0;x--)
-                out = messages[x-1][0] + "\n" + CryptoJS.AES.encrypt(out, messages[x-1][1])
-            
+            for (var x = messages.length; x > 0; x--)
+                out = messages[x - 1][0] + "\n" + CryptoJS.AES.encrypt(out, messages[x - 1][1])
+
             return out
+        }
+        function reset2(){
+            let reset = confirm('reset progress?')
+            if(reset){
+                localStorage.removeItem('message')
+                message = original_message;
+                update_all();
+            }
         }
     </script>
 </head>
@@ -123,13 +141,16 @@ U2FsdGVkX18D48t7z1U3oeoNS17qVKzvBkcM3hbrS1Hn9kPKcENnvBL0jFe/30mFKYU6g0/hcdFl5DME
                     <input id="cryptokey"></input>
                     <button class="pure-button pure-button-primary" onclick="decrypt()" type="button">Decrypt</button>
                 </fieldset>
+                <fieldset>
+                    <button class="pure-button button-warning" onclick="reset2()" type="button" >reset</button>
+                </fieldset>
             </form>
             <!-- <b>Next-message</b>
             <div class="splash-subhead" style="word-wrap: break-word;height:100px; overflow-y:scroll" id="next_message" /> -->
         </div>
-       
+
     </div>
-    
+
 </body>
 
 </html>
