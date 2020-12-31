@@ -1,0 +1,103 @@
+<!--DOCTYPE HTML-->
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" crossorigin="anonymous">
+    <style>
+        /*
+ * -- SPLASH STYLES --
+ * This is the blue top section that appears on the page.
+ */
+
+        .splash-container {
+            background: #1f8dd6;
+            z-index: 1;
+            overflow: hidden;
+            /* The following styles are required for the "scroll-over" effect */
+            width: 100%;
+            height: 88%;
+            top: 0;
+            left: 0;
+            position: fixed !important;
+        }
+
+        .splash {
+            /* absolute center .splash within .splash-container */
+            width: 80%;
+            height: 100%;
+            margin: auto;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            text-align: center;
+            
+
+        }
+
+        /* This is the main heading that appears on the blue section */
+        .splash-head {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            border: 3px solid white;
+            padding: 1em 1.6em;
+            font-weight: 100;
+            border-radius: 5px;
+            line-height: 1em;
+        }
+
+        /* This is the subheading that appears on the blue section */
+        .splash-subhead {
+            color: white;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+            white-space: pre-line;    
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"
+        integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        var description = "You must find the right answer!"
+        var message = `First things first, I needed the tools for the job. I went to that bookstore and purchased some digging equipment. I thought it best to get a branded - after my favourite vegetable.- asparagus.. or is it that well known roman weapon. Despite this it was the best price of 2020 - so proud i have encrypted the next message with the price I paid!
+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`
+        var decrypt_button = document.getElementById("decrypt");
+        function decrypt() {
+            var encrypted_el = message.split("\n").slice(-1).pop()
+            var out = CryptoJS.AES.decrypt(encrypted_el, document.getElementById("cryptokey").value.toLowerCase().replace(" ", ""));
+            var str_out = out.toString(CryptoJS.enc.Utf8)
+            if (str_out.length === 0) {
+                alert("Sorry that is not correct")
+                return
+            }
+            message = str_out
+            update_all()
+        }
+        function update_all() {
+            plain_text = message.split("\n").slice(0, -1).join("\n")
+            console.log(plain_text)
+            document.getElementById("text_description").innerText = plain_text;
+            document.getElementById("cryptokey").value="";
+        }
+    </script>
+</head>
+
+<body onload="update_all()">
+    <div class="splash-container">
+        <div class="splash">
+            <div class="splash-subhead" id="text_description"></div>
+            <form class="pure-form">
+                <fieldset>
+                    <legend ></legend>
+                    <input id="cryptokey"></input>
+                    <button class="pure-button pure-button-primary" onclick="decrypt()" type="button">Decrypt</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
