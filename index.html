@@ -33,7 +33,7 @@
             bottom: 0;
             right: 0;
             text-align: center;
-            
+
 
         }
 
@@ -54,7 +54,7 @@
             color: white;
             letter-spacing: 0.05em;
             opacity: 0.8;
-            white-space: pre-line;    
+            white-space: pre-line;
         }
     </style>
 
@@ -68,19 +68,22 @@ U2FsdGVkX18omXkphVSdUugc2qH+ZVnZikbuV5pd6lh9WsSp3sLSzlB36R1VXjift4d8BFy95lLKV1oN
         function decrypt() {
             var encrypted_el = message.split("\n").slice(-1).pop()
             var out = CryptoJS.AES.decrypt(encrypted_el, document.getElementById("cryptokey").value.toLowerCase().replace(" ", ""));
+            try{
             var str_out = out.toString(CryptoJS.enc.Utf8)
-            if (str_out.length === 0) {
+
+            message = str_out
+            update_all()
+            }catch{
                 alert("Sorry that is not correct")
                 return
             }
-            message = str_out
-            update_all()
         }
         function update_all() {
             plain_text = message.split("\n").slice(0, -1).join("\n")
             console.log(plain_text)
             document.getElementById("text_description").innerText = plain_text;
-            document.getElementById("cryptokey").value="";
+            document.getElementById("cryptokey").value = "";
+            document.getElementById("next_message").innerText = message.split("\n").slice(-1).pop();
         }
     </script>
 </head>
@@ -91,13 +94,17 @@ U2FsdGVkX18omXkphVSdUugc2qH+ZVnZikbuV5pd6lh9WsSp3sLSzlB36R1VXjift4d8BFy95lLKV1oN
             <div class="splash-subhead" id="text_description"></div>
             <form class="pure-form">
                 <fieldset>
-                    <legend ></legend>
+                    <legend></legend>
                     <input id="cryptokey"></input>
                     <button class="pure-button pure-button-primary" onclick="decrypt()" type="button">Decrypt</button>
                 </fieldset>
             </form>
+            <b>Next-message</b>
+            <div class="splash-subhead" style="word-wrap: break-word;height:100px; overflow-y:scroll" id="next_message" />
         </div>
+       
     </div>
+    
 </body>
 
 </html>
