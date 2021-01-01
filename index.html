@@ -140,14 +140,15 @@ U2FsdGVkX18D48t7z1U3oeoNS17qVKzvBkcM3hbrS1Hn9kPKcENnvBL0jFe/30mFKYU6g0/hcdFl5DME
     <div class="splash-container">
         <div class="splash">
             <div class="splash-subhead" id="text_description"></div>
-            <form class="pure-form">
+            <form class="pure-form" onsubmit="event.preventDefault();decrypt()">
                 <fieldset>
                     <legend></legend>
                     <input id="cryptokey"></input>
-                    <button class="pure-button pure-button-primary" onclick="decrypt()" type="button">Decrypt</button>
+                    <button class="pure-button pure-button-primary">Decrypt</button>
+                    <button class="pure-button pure-button-primary button-warning" onclick="reset2()" type="button" >reset</button>
                 </fieldset>
                 <fieldset>
-                    <button class="pure-button button-warning" onclick="reset2()" type="button" >reset</button>
+                    
                 </fieldset>
             </form>
             <!-- <b>Next-message</b>
